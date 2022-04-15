@@ -41,8 +41,7 @@ fetchAllButton.addEventListener('click', () => {
       }
     })
     .then(response => {
-      // renderQuotes(response.quotes);
-      renderQuotes(response);
+      renderQuotes(response.quotes);
     });
 });
 
@@ -56,8 +55,7 @@ fetchRandomButton.addEventListener('click', () => {
       }
     })
     .then(response => {
-      // renderQuotes([response.quote]);
-      renderQuotes([response]);
+      renderQuotes([response.quote]);
     });
 });
 
@@ -72,7 +70,6 @@ fetchByAuthorButton.addEventListener('click', () => {
       }
     })
     .then(response => {
-      // renderQuotes(response.quotes);
-      renderQuotes(response)
+      renderQuotes(response.quotes);
     });
 });
