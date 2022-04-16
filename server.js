@@ -13,16 +13,6 @@ app.get('/api/quotes/random', (req, res, next) => {
     res.send({ quote: randomQuote });
 })
 
-// app.get('/api/quotes/:person', (req, res, next) => {
-//     const person = req.params.person;
-//     const returnArray = quotes.filter((quote) => {
-//         return quote.person === person;
-//     })
-
-//     res.send(returnArray);
-
-// })
-
 app.get('/api/quotes', (req, res, next) => {
     const person = req.query.person;
     if (person) {
@@ -39,7 +29,19 @@ app.get('/api/quotes', (req, res, next) => {
     }
 })
 
+app.post('/api/quotes', (req, res, next) => {
+    const person = req.query.person;
+    const quote = req.query.quote;
 
+    if (quote && person) {
+        const newQuote = { quote: { quote: quote, person: person } }
+        quotes.push(newQuote.quote)
+
+        res.send(newQuote)
+    } else {
+        res.status(400).send;
+    }
+})
 app.use(express.static('public'));
 
 app.listen(PORT, () => {
